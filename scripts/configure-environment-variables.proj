@@ -1,0 +1,64 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- This script requires that the SolutionDir and Environment properties 
+       are set by the caller. Either throught the command line or by another 
+       MSBuild script.
+       
+       msbuild script.proj /p:"SolutionDir=some/path"
+
+       or
+
+       <PropertyGroup>
+         <SolutionDir>some/path</SolutionDir>
+       </PropertyGroup>
+
+
+       The current path for this script depends on the caller, so you can't
+       assume anything abouth the current directory. The only way to get 
+       the paths to point correctly is to base them on the SolutionDir 
+       property given by the caller.
+  -->
+
+  <!-- <UsingTask AssemblyFile="..\src\MsbuildExample\Build\MSBuild.Community.Tasks.dll" -->
+  <!--        TaskName="MSBuild.Community.Tasks.TemplateFile" /> -->
+
+  <!-- <Import Project="..\src\MsbuildExample\Build\MSBuild.Community.Tasks.targets" /> -->
+
+
+  <PropertyGroup>
+    <SolutionDir>$(MSBuildThisFileDirectory)..\src\MsbuildExample\</SolutionDir>
+    <ProjectRootDir>$(SolutionDir)MsbuildExample\</ProjectRootDir>
+    <CommunityTasksDir>$(SolutionDir)Build\</CommunityTasksDir>
+  </PropertyGroup>
+
+  <UsingTask AssemblyFile="$(CommunityTasksDir)MSBuild.Community.Tasks.dll"
+         TaskName="MSBuild.Community.Tasks.TemplateFile" />
+
+  <Import Project="$(CommunityTasksDir)MSBuild.Community.Tasks.targets" />
+
+
+  <PropertyGroup>
+    <SomeSetting>Dev-value for SomeSetting</SomeSetting>
+    <ConnectionString>Server=devserver;Database=myDataBase;User Id=myUsername;Password=myPassword;</ConnectionString>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Environment)'=='Production' ">
+    <SomeSetting>Prod-value for SomeSetting</SomeSetting>
+    <ConnectionString>Server=prodserver;Database=myDataBase;User Id=myUsername;Password=myPassword;</ConnectionString>
+  </PropertyGroup>
+  <ItemGroup>
+    <Tokens Include="SomeSetting">
+      <ReplacementValue>$(SomeSetting)</ReplacementValue>
+    </Tokens>
+    <Tokens Include="DefaultConnectionString">
+      <ReplacementValue>$(ConnectionString)</ReplacementValue>
+    </Tokens>
+  </ItemGroup>
+
+  <Target Name="Build">
+    <Message Text="$(SolutionDir)" />
+    <TemplateFile
+        Template="$(ProjectRootDir)App.template.config"
+        OutputFileName="$(ProjectRootDir)App.config"
+        Tokens="@(Tokens)" />
+  </Target>
+</Project>
