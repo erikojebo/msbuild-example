@@ -1,0 +1,35 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SolutionDir>$(MSBuildThisFileDirectory)..\src\MsbuildExample\</SolutionDir>
+    <ProjectRootDir>$(SolutionDir)MsbuildExample\</ProjectRootDir>
+    <BinReleaseDir>$(ProjectRootDir)bin\release\</BinReleaseDir>
+    <BuildOutputDir>$(MSBuildThisFileDirectory)..\BuildOutput\</BuildOutputDir>
+    <CommunityTasksDir>$(SolutionDir)Build\</CommunityTasksDir>
+  </PropertyGroup>
+
+  <UsingTask AssemblyFile="$(CommunityTasksDir)MSBuild.Community.Tasks.dll"
+             TaskName="MSBuild.Community.Tasks.TemplateFile" />
+  <UsingTask AssemblyFile="$(CommunityTasksDir)MSBuild.Community.Tasks.dll"
+             TaskName="MSBuild.Community.Tasks.Zip" />
+  <UsingTask AssemblyFile="$(CommunityTasksDir)MSBuild.Community.Tasks.dll"
+             TaskName="MSBuild.Community.Tasks.Time" />
+
+  <Import Project="$(CommunityTasksDir)MSBuild.Community.Tasks.targets" />
+
+  <Target Name="CreateZip">
+     <ItemGroup>
+       <FilesToZip Include="$(BinReleaseDir)**\*.*" Exclude="*.zip" />
+     </ItemGroup>
+
+     <Time Format="yyyy-MM-dd">
+       <Output TaskParameter="FormattedTime" PropertyName="CurrentDateTime" />
+     </Time>
+
+     <MakeDir Directories="$(BuildOutputDir)" Condition="!Exists('$(BuildOutputDir)')" />
+
+     <Zip Files="@(FilesToZip)"
+          WorkingDirectory="$(BinReleaseDir)" 
+          ZipFileName="$(BuildOutputDir)deploy_$(CurrentDateTime).zip"
+          ZipLevel="9" /> 
+  </Target>
+</Project>
