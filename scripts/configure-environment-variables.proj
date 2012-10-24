@@ -55,7 +55,7 @@
   </ItemGroup>
 
   <Target Name="Configure">
-    <Message Text="$(SolutionDir)" />
+    <Message Text="Writing configuration for environment '$(SolutionDir)'" />
     <TemplateFile
         Template="$(ProjectRootDir)App.template.config"
         OutputFileName="$(ProjectRootDir)App.config"
