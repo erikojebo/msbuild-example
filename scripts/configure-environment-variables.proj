@@ -1,28 +1,21 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <!-- This script requires that the SolutionDir and Environment properties 
-       are set by the caller. Either throught the command line or by another 
+  <!-- This script has one parameter called Environment. This parameter is
+       used to select which values to write to the configuration. It should be
+       set by the caller. Either throught the command line or by another
        MSBuild script.
        
-       msbuild script.proj /p:"SolutionDir=some/path"
+       msbuild script.proj /p:"Environment=Production"
 
        or
 
        <PropertyGroup>
-         <SolutionDir>some/path</SolutionDir>
+         <Environment>Production</Environment>
        </PropertyGroup>
 
-
-       The current path for this script depends on the caller, so you can't
-       assume anything abouth the current directory. The only way to get 
-       the paths to point correctly is to base them on the SolutionDir 
-       property given by the caller.
+       All paths used by this script should be based on the
+       MSBuildThisFileDirectory property (or one of its siblings). This avoids
+       problems with incorrect relative paths.
   -->
-
-  <!-- <UsingTask AssemblyFile="..\src\MsbuildExample\Build\MSBuild.Community.Tasks.dll" -->
-  <!--        TaskName="MSBuild.Community.Tasks.TemplateFile" /> -->
-
-  <!-- <Import Project="..\src\MsbuildExample\Build\MSBuild.Community.Tasks.targets" /> -->
-
 
   <PropertyGroup>
     <SolutionDir>$(MSBuildThisFileDirectory)..\src\MsbuildExample\</SolutionDir>
