@@ -62,6 +62,6 @@
   <Target Name="BeforeBuild">
   </Target>
   <Target Name="AfterBuild">
-     <MSBuild Projects="../../../scripts/configure-environment-variables.proj" Properties="Environment=Production;" />
+     <MSBuild Projects="../../../scripts/configure-environment-variables.proj" Properties="Environment=Development;" />
   </Target>
 </Project>

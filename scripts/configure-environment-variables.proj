@@ -54,7 +54,7 @@
     </Tokens>
   </ItemGroup>
 
-  <Target Name="Build">
+  <Target Name="Configure">
     <Message Text="$(SolutionDir)" />
     <TemplateFile
         Template="$(ProjectRootDir)App.template.config"

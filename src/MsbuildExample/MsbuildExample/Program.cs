@@ -10,7 +10,7 @@ namespace MsbuildExample
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Connection string: " + ConfigurationManager.ConnectionStrings["DefaultConnectinoString"]);
+            Console.WriteLine("Connection string: " + ConfigurationManager.ConnectionStrings["DefaultConnectionString"]);
             Console.WriteLine("SomeSetting: " + ConfigurationManager.AppSettings["SomeSetting"]);
         }
     }
