@@ -16,13 +16,13 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{DF7507D5-FEA9-42FB-8937-1924BD3E6ECD}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{DF7507D5-FEA9-42FB-8937-1924BD3E6ECD}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{DF7507D5-FEA9-42FB-8937-1924BD3E6ECD}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{DF7507D5-FEA9-42FB-8937-1924BD3E6ECD}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{DF7507D5-FEA9-42FB-8937-1924BD3E6ECD}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{DF7507D5-FEA9-42FB-8937-1924BD3E6ECD}.Debug|x86.ActiveCfg = Debug|x86
 		{DF7507D5-FEA9-42FB-8937-1924BD3E6ECD}.Debug|x86.Build.0 = Debug|x86
 		{DF7507D5-FEA9-42FB-8937-1924BD3E6ECD}.Release|Any CPU.ActiveCfg = Release|x86
-		{DF7507D5-FEA9-42FB-8937-1924BD3E6ECD}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{DF7507D5-FEA9-42FB-8937-1924BD3E6ECD}.Release|Mixed Platforms.Build.0 = Release|x86
+		{DF7507D5-FEA9-42FB-8937-1924BD3E6ECD}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{DF7507D5-FEA9-42FB-8937-1924BD3E6ECD}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{DF7507D5-FEA9-42FB-8937-1924BD3E6ECD}.Release|x86.ActiveCfg = Release|x86
 		{DF7507D5-FEA9-42FB-8937-1924BD3E6ECD}.Release|x86.Build.0 = Release|x86
 		{3D9EAB0C-8042-402D-8ADC-3828F58EDE68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
