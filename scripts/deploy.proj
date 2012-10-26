@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <SolutionDir>$(MSBuildThisFileDirectory)..\src\MsbuildExample\</SolutionDir>
     <ProjectRootDir>$(SolutionDir)MsbuildExample\</ProjectRootDir>
     <BinReleaseDir>$(ProjectRootDir)bin\release\</BinReleaseDir>
-    <BuildOutputDir Overwrite="False">$(MSBuildThisFileDirectory)..\BuildOutput\</BuildOutputDir>
+    <BuildOutputDir>$(MSBuildThisFileDirectory)..\BuildOutput\</BuildOutputDir>
     <CommunityTasksDir>$(SolutionDir)Build\</CommunityTasksDir>
   </PropertyGroup>
 
