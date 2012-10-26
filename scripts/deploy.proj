@@ -3,7 +3,7 @@
     <SolutionDir>$(MSBuildThisFileDirectory)..\src\MsbuildExample\</SolutionDir>
     <ProjectRootDir>$(SolutionDir)MsbuildExample\</ProjectRootDir>
     <BinReleaseDir>$(ProjectRootDir)bin\release\</BinReleaseDir>
-    <BuildOutputDir>$(MSBuildThisFileDirectory)..\BuildOutput\</BuildOutputDir>
+    <BuildOutputDir Overwrite="False">$(MSBuildThisFileDirectory)..\BuildOutput\</BuildOutputDir>
     <CommunityTasksDir>$(SolutionDir)Build\</CommunityTasksDir>
   </PropertyGroup>
 
